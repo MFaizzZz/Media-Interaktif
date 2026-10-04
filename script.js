@@ -11,7 +11,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const navItems = document.querySelectorAll('.nav-item');
   const pages = document.querySelectorAll('.page');
   const topbarPage = document.getElementById('topbarPage');
+  const navbar = document.getElementById('navbar');
+  const navToggle = document.querySelector('.nav-toggle');
   const activePageStorageKey = 'jarkom-active-page';
+
+  function closeMobileMenu(){
+    if (!navbar || !navToggle) return;
+    navbar.classList.remove('menu-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Buka menu navigasi');
+  }
+
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navbar.classList.toggle('menu-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi');
+    });
+  }
 
   function goToPage(target){
     pages.forEach(p => p.classList.toggle('active', p.id === 'page-' + target));
@@ -20,11 +37,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (activeItem && topbarPage) topbarPage.textContent = activeItem.textContent.trim();
     try { localStorage.setItem(activePageStorageKey, target); } catch (error) { /* abaikan */ }
     if (target === 'kuis' && isQuizUnlocked() && lastQuizResult) restoreQuizResult();
+    closeMobileMenu();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   navItems.forEach(btn => {
     btn.addEventListener('click', () => goToPage(btn.dataset.target));
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeMobileMenu();
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 760) closeMobileMenu();
   });
 
   // Semua tombol dengan atribut data-goto (dashboard, tombol "Mulai Belajar", dll)
