@@ -565,30 +565,44 @@
       </div>
 
       <div id="kuisHasil" class="quiz-result" style="display:none">
+        <div class="result-heading">
+          <div>
+            <span class="result-kicker">Evaluasi selesai</span>
+            <h1>Ringkasan hasil kuis</h1>
+            <p>Gunakan hasil ini untuk menentukan bagian materi yang perlu kamu ulangi.</p>
+          </div>
+          <span class="result-completed" id="resultCompleted">15 soal dikerjakan</span>
+        </div>
         <div class="result-layout">
           <div class="result-score-card">
-            <div class="result-score-ring">
-              <span id="resultPercent">0%</span>
+            <span class="result-card-label">Nilai kamu</span>
+            <div class="result-score-wrap">
+              <div class="result-score-ring">
+                <span id="resultPercent">0%</span>
+              </div>
+              <span class="result-score-caption">dari 100</span>
             </div>
             <h2 id="resultTitle">Hasil Evaluasi</h2>
             <p id="resultSummary">Berikut hasil pengerjaan kuismu.</p>
           </div>
           <div class="result-stats" aria-label="Statistik hasil kuis">
-            <div class="result-stat"><strong id="resultCorrect">0</strong><span>Jawaban Benar</span></div>
-            <div class="result-stat"><strong id="resultWrong">0</strong><span>Jawaban Salah</span></div>
-            <div class="result-stat"><strong id="resultScore">0</strong><span>Nilai Akhir</span></div>
+            <p class="result-stats-title">Rincian jawaban</p>
+            <div class="result-stat result-stat-correct"><span class="result-stat-icon" aria-hidden="true">&#10003;</span><div><strong id="resultCorrect">0</strong><span>Jawaban benar</span></div></div>
+            <div class="result-stat result-stat-wrong"><span class="result-stat-icon" aria-hidden="true">&#215;</span><div><strong id="resultWrong">0</strong><span>Perlu diulang</span></div></div>
+            <div class="result-stat result-stat-score"><span class="result-stat-icon" aria-hidden="true">%</span><div><strong id="resultScore">0</strong><span>Nilai akhir</span></div></div>
           </div>
           <aside class="result-insight">
-            <span class="result-insight-label">Rekomendasi Belajar</span>
+            <span class="result-insight-label">Langkah berikutnya</span>
             <h3 id="resultInsightTitle">Lanjutkan belajarmu</h3>
             <p id="resultRecommendation"></p>
+            <span class="result-insight-hint">Kamu bisa melihat pembahasan kapan saja.</span>
           </aside>
         </div>
         <div class="result-actions">
-          <button class="btn btn-ghost" id="showReviewBtn">Lihat Pembahasan</button>
-          <button class="btn btn-ghost" id="retryWrongBtn">Ulangi Soal Salah</button>
-          <button class="btn btn-ghost" id="retryQuizBtn">Ulangi Kuis</button>
-          <button class="btn btn-primary" data-goto="dashboard">Kembali ke Dashboard</button>
+          <button class="btn btn-ghost" id="showReviewBtn">Lihat pembahasan</button>
+          <button class="btn btn-ghost" id="retryWrongBtn">Ulangi soal yang salah</button>
+          <button class="btn btn-primary" id="retryQuizBtn">Coba Ulang Kuis</button>
+          <button class="result-dashboard-link" data-goto="dashboard">Kembali ke dashboard</button>
         </div>
       </div>
 

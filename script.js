@@ -568,6 +568,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('resultWrong').textContent = wrongCount;
     document.getElementById('resultScore').textContent = percent;
     document.getElementById('resultPercent').textContent = percent + '%';
+    document.getElementById('resultCompleted').textContent =
+      (correctCount + wrongCount) + ' soal dikerjakan';
     document.querySelector('.result-score-ring').style.setProperty('--pct', percent);
 
     const resultTitle = document.getElementById('resultTitle');
