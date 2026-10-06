@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Simulasi Jaringan | JarKom</title>
+<link rel="stylesheet" href="style.css?v=20261005-11" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="simulation-body">
+    <!-- ===== SIMULASI TOPOLOGI ===== -->
+    <main class="simulation-page">
+      <div class="simulation-hero">
+        <div>
+          <span class="simulation-kicker">Laboratorium Interaktif</span>
+          <h1>Simulasi Topologi Jaringan</h1>
+          <p>Pilih bentuk topologi, kirim paket data, lalu amati jalur komunikasi antarperangkat.</p>
+        </div>
+        <div class="simulation-hero-icon" aria-hidden="true">
+          <svg viewBox="0 0 80 80" fill="none"><circle cx="17" cy="18" r="8" stroke="currentColor" stroke-width="4"/><circle cx="63" cy="18" r="8" stroke="currentColor" stroke-width="4"/><circle cx="40" cy="62" r="8" stroke="currentColor" stroke-width="4"/><path d="M24 22 34 53M56 22 46 53M25 18h30" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+
+      <div class="simulation-layout">
+        <aside class="simulation-control" aria-label="Kontrol simulasi">
+          <span class="control-label">Pilih topologi</span>
+          <div class="topology-picker" role="group" aria-label="Jenis topologi">
+            <button class="topology-option active" type="button" data-topology="star">Star</button>
+            <button class="topology-option" type="button" data-topology="bus">Bus</button>
+            <button class="topology-option" type="button" data-topology="ring">Ring</button>
+            <button class="topology-option" type="button" data-topology="mesh">Mesh</button>
+            <button class="topology-option" type="button" data-topology="tree">Tree</button>
+            <button class="topology-option" type="button" data-topology="hybrid">Hybrid</button>
+          </div>
+          <div class="topology-description" id="topologyDescription">
+            <h2>Topologi Star</h2>
+            <p>Semua komputer terhubung ke satu perangkat pusat, seperti switch.</p>
+          </div>
+          <div class="packet-route" aria-label="Tujuan pengiriman paket">
+            <label for="packetSource">Kirim dari</label>
+            <select id="packetSource"></select>
+            <label for="packetDestination">Kirim ke</label>
+            <select id="packetDestination"></select>
+          </div>
+          <div class="device-palette" role="group" aria-label="Tambah perangkat jaringan">
+            <span class="control-label">Perangkat</span>
+            <p>Seret perangkat ke arena, atau pilih lalu klik arena.</p>
+            <div class="device-palette-grid">
+              <button class="device-tool" type="button" draggable="true" data-add-device="computer" aria-pressed="false"><span class="device-tool-icon computer-icon" aria-hidden="true">▣</span><span>Komputer</span></button>
+              <button class="device-tool" type="button" draggable="true" data-add-device="switch" aria-pressed="false"><span class="device-tool-icon switch-icon" aria-hidden="true">▤</span><span>Switch</span></button>
+              <button class="device-tool" type="button" draggable="true" data-add-device="router" aria-pressed="false"><span class="device-tool-icon router-icon" aria-hidden="true">✣</span><span>Router</span></button>
+            </div>
+            <button class="device-cable-tool" id="connectDevicesBtn" type="button" aria-pressed="false">⌁ &nbsp; Hubungkan Kabel</button>
+          </div>
+          <button class="simulation-reset-layout" id="resetLayoutBtn" type="button">↺ Reset Arena</button>
+          <button class="btn btn-primary simulation-send" id="sendPacketBtn" type="button">Kirim Paket Data</button>
+          <button class="simulation-fault" id="toggleFaultBtn" type="button" aria-pressed="false">Pilih Kabel untuk Diputus</button>
+          <p class="simulation-tip">Seret perangkat ke arena. Klik perangkat lalu klik ruang kosong untuk memindahkannya, atau langsung tarik. Pilih objek dan tekan Hapus pilihan atau Delete.</p>
+        </aside>
+
+        <div class="simulation-stage-wrap">
+          <div class="simulation-stage-head">
+            <div><span>Area Simulasi</span><strong id="simulationTitle">Topologi Star</strong></div>
+            <b class="simulation-status" id="simulationStatus" aria-live="polite">Siap mengirim data</b>
+            <div class="simulation-selection" aria-live="polite"><span id="selectionLabel">Belum ada objek dipilih</span><button id="deleteSelectionBtn" type="button" disabled>Hapus pilihan</button></div>
+          </div>
+          <div class="simulation-stage" id="simulationStage" aria-label="Visualisasi topologi jaringan">
+            <svg id="topologySvg" viewBox="0 0 660 390" role="img" aria-labelledby="simulationSvgTitle simulationSvgDesc">
+              <title id="simulationSvgTitle">Visualisasi topologi star</title>
+              <desc id="simulationSvgDesc">Empat komputer terhubung ke switch di bagian tengah.</desc>
+            </svg>
+          </div>
+          <p class="simulation-caption" id="simulationCaption">Pada topologi Star, paket data dari Komputer A diteruskan switch menuju Komputer C.</p>
+          <section class="simulation-challenge" aria-labelledby="challengeTitle">
+            <div class="challenge-heading">
+              <div>
+                <span class="simulation-kicker">Misi Simulasi</span>
+                <h2 id="challengeTitle">Selesaikan misi topologi</h2>
+              </div>
+              <span class="challenge-progress" id="challengeProgress" aria-live="polite">0/6 selesai</span>
+            </div>
+            <p class="challenge-question" id="challengeQuestion">Pilih asal dan tujuan sesuai misi, lalu kirim paket data.</p>
+            <p class="challenge-feedback" id="challengeFeedback" aria-live="polite">Misi akan selesai otomatis setelah paket tiba di tujuan yang benar.</p>
+            <div class="challenge-list" id="challengeList" aria-label="Daftar misi topologi"></div>
+          </section>
+        </div>
+      </div>
+
+      <div class="simulation-note"><strong>Yang dapat dipelajari:</strong> bentuk hubungan perangkat, jalur perpindahan data, dampak gangguan kabel, serta cara tata letak memengaruhi tampilan jaringan.</div>
+    </main>
+
+<script src="script.js?v=20261005-14"></script>
+</body>
+</html>

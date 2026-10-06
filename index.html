@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Pengenalan Jaringan Komputer | Media Pembelajaran Interaktif</title>
-<link rel="stylesheet" href="style.css?v=20261001-9" />
+<link rel="stylesheet" href="style.css?v=20261005-11" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -42,6 +42,10 @@
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H12v16h6.5a1.5 1.5 0 0 0 1.5-1.5v-13Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
         <span>Materi</span>
       </button>
+      <button class="nav-item" data-target="simulasi">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="2.4" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="6" r="2.4" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="18" r="2.4" stroke="currentColor" stroke-width="1.8"/><path d="M8 7.5 11 15M16 7.5 13 15M8.4 6h7.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span>Simulasi</span>
+      </button>
       <button class="nav-item" data-target="kuis">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none"><path d="M9 10a3 3 0 1 1 3.5 2.96c-.6.13-1.5.63-1.5 1.54" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="18" r="0.9" fill="currentColor"/><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.8"/></svg>
         <span>Kuis</span>
@@ -70,7 +74,8 @@
 
     <!-- ===== DASHBOARD ===== -->
     <section class="page active" id="page-dashboard">
-      <div class="hero">
+      <div class="dashboard-overview">
+      <div class="hero dashboard-hero">
         <div class="hero-text">
           <p class="hero-kicker">Mata Kuliah Jaringan Komputer</p>
           <h1>Pengenalan Jaringan Komputer</h1>
@@ -120,40 +125,32 @@
       <section class="learning-progress" aria-labelledby="learningProgressTitle">
         <div class="progress-heading">
           <div>
-            <p class="progress-kicker">Perjalanan Belajarmu</p>
+            <p class="progress-kicker">Capaian Saat Ini</p>
             <h2 id="learningProgressTitle">Progress Belajar</h2>
-            <p>Selesaikan materi dan kuis untuk menuntaskan pembelajaran.</p>
+            <p>Ikuti jalur materi satu per satu.</p>
           </div>
           <div class="progress-score" aria-label="Progress belajar">
             <strong id="learningProgressPercent">0%</strong>
             <span id="learningProgressCount">0 dari 4 selesai</span>
-            <button class="reset-progress-btn" type="button" id="resetProgressBtn">Reset progress</button>
           </div>
         </div>
         <div class="learning-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="learningProgressTitle">
           <span id="learningProgressFill"></span>
         </div>
-        <div class="progress-steps">
-          <button class="progress-step" type="button" data-goto="materi" data-materi="pengertian" data-progress-step="pengertian">
-            <span class="progress-step-icon">1</span><span>Pengertian Jaringan</span>
-          </button>
-          <button class="progress-step" type="button" data-goto="materi" data-materi="jenis" data-progress-step="jenis">
-            <span class="progress-step-icon">2</span><span>Jenis Jaringan</span>
-          </button>
-          <button class="progress-step" type="button" data-goto="materi" data-materi="topologi" data-progress-step="topologi">
-            <span class="progress-step-icon">3</span><span>Topologi Jaringan</span>
-          </button>
-          <button class="progress-step" type="button" data-goto="kuis" data-progress-step="kuis">
-            <span class="progress-step-icon">4</span><span>Kuis Evaluasi</span>
-          </button>
-        </div>
+        <div class="progress-note">Kuis terbuka setelah tiga materi selesai.</div>
+        <button class="reset-progress-btn" type="button" id="resetProgressBtn">Reset progress</button>
       </section>
+      </div>
 
-      <h2 class="section-title">Ringkasan Materi</h2>
-      <p class="section-subtitle">Tiga topik utama yang akan kamu pelajari di media ini.</p>
+      <div class="learning-path-heading">
+        <div>
+          <p class="section-eyebrow">Jalur pembelajaran</p>
+          <h2 class="section-title">Mulai dari pondasi, lanjutkan sampai evaluasi.</h2>
+        </div>
+      </div>
 
-      <div class="summary-grid">
-        <button class="summary-card" data-goto="materi" data-materi="pengertian">
+      <div class="summary-grid learning-path">
+        <button class="summary-card progress-step" type="button" data-goto="materi" data-materi="pengertian" data-progress-step="pengertian">
           <div class="summary-icon" style="background:#E7F1FC">
             <svg viewBox="0 0 24 24" fill="none" width="26" height="26"><circle cx="12" cy="12" r="9" stroke="#2F8FE0" stroke-width="1.8"/><path d="M12 8v.01M11 11h1v6h1" stroke="#2F8FE0" stroke-width="1.8" stroke-linecap="round"/></svg>
           </div>
@@ -162,7 +159,7 @@
           <span class="summary-link">Pelajari materi</span>
         </button>
 
-        <button class="summary-card" data-goto="materi" data-materi="jenis">
+        <button class="summary-card progress-step" type="button" data-goto="materi" data-materi="jenis" data-progress-step="jenis">
           <div class="summary-icon" style="background:#E4F8F6">
             <svg viewBox="0 0 24 24" fill="none" width="26" height="26"><circle cx="6" cy="6" r="2.4" stroke="#38C9C9" stroke-width="1.8"/><circle cx="18" cy="6" r="2.4" stroke="#38C9C9" stroke-width="1.8"/><circle cx="12" cy="18" r="2.4" stroke="#38C9C9" stroke-width="1.8"/><path d="M8 7.5L11 15M16 7.5L13 15M8.3 6h7.4" stroke="#38C9C9" stroke-width="1.6"/></svg>
           </div>
@@ -171,7 +168,7 @@
           <span class="summary-link">Pelajari materi</span>
         </button>
 
-        <button class="summary-card" data-goto="materi" data-materi="topologi">
+        <button class="summary-card progress-step" type="button" data-goto="materi" data-materi="topologi" data-progress-step="topologi">
           <div class="summary-icon" style="background:#EAF0FC">
             <svg viewBox="0 0 24 24" fill="none" width="26" height="26"><rect x="4" y="9" width="16" height="7" rx="1.5" stroke="#1B4B7A" stroke-width="1.8"/><path d="M8 20h8M12 16v4" stroke="#1B4B7A" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="12.5" r="0.8" fill="#1B4B7A"/></svg>
           </div>
@@ -182,276 +179,16 @@
       </div>
 
       <div class="dashboard-links">
-        <button class="mini-link" data-goto="kuis">
+        <button class="mini-link progress-step" type="button" data-goto="kuis" data-progress-step="kuis">
           <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M9 10a3 3 0 1 1 3.5 2.96c-.6.13-1.5.63-1.5 1.54" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="18" r="0.9" fill="currentColor"/></svg>
           Uji pemahaman lewat kuis
         </button>
       </div>
     </section>
 
-    <!-- ===== MATERI ===== -->
+    <!-- Materi dipisahkan agar kontennya mudah dikelola. -->
     <section class="page" id="page-materi">
-      <h1 class="page-title">Materi Pembelajaran</h1>
-      <p class="page-lead">Pilih topik yang ingin kamu pelajari.</p>
-
-      <div class="tabs" id="materiTabs">
-        <button class="tab active" data-topic="pengertian">1. Pengertian Jaringan</button>
-        <button class="tab" data-topic="jenis">2. Jenis-Jenis Jaringan</button>
-        <button class="tab" data-topic="topologi">3. Topologi Jaringan</button>
-      </div>
-
-      <!-- TOPIK 1: PENGERTIAN -->
-      <div class="topic-panel active" id="topic-pengertian">
-        <article class="materi-block">
-          <div class="materi-intro">
-            <div class="materi-intro-copy">
-              <h2>Pengertian Jaringan Komputer</h2>
-              <p>Jaringan komputer adalah dua atau lebih komputer beserta perangkat pendukung lainnya yang
-              saling dihubungkan menggunakan sebuah media sehingga dapat saling berkomunikasi dan berbagi
-              sumber daya. Perangkat pendukung dapat berupa printer, server, kartu jaringan, atau perangkat
-              jaringan lainnya.</p>
-            </div>
-            <figure class="network-visual" aria-label="Ilustrasi perangkat komputer yang terhubung dalam jaringan">
-              <svg viewBox="0 0 330 180" role="img" aria-hidden="true">
-                <defs>
-                  <linearGradient id="networkPanel" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#EDF8FF"/><stop offset="1" stop-color="#F1FCFB"/></linearGradient>
-                </defs>
-                <path class="network-link" d="M73 54L164 90 255 51M73 54L70 132 164 90 256 132M164 90V38"/>
-                <circle class="network-pulse" cx="164" cy="90" r="34"/>
-                <g class="network-node network-node-main"><rect x="141" y="67" width="46" height="40" rx="10"/><path d="M151 96h26M164 96v7M155 104h18"/></g>
-                <g class="network-node"><rect x="51" y="35" width="43" height="31" rx="7"/><path d="M58 59h29M72 59v5M64 65h16"/></g>
-                <g class="network-node"><rect x="235" y="32" width="43" height="31" rx="7"/><path d="M242 56h29M256 56v5M248 62h16"/></g>
-                <g class="network-node"><rect x="49" y="117" width="43" height="30" rx="7"/><path d="M56 140h29M70 140v5M62 145h16"/></g>
-                <g class="network-node"><rect x="235" y="117" width="43" height="30" rx="7"/><path d="M242 140h29M256 140v5M248 145h16"/></g>
-                <g class="network-server"><rect x="151" y="18" width="26" height="24" rx="5"/><path d="M157 25h2M157 32h2M164 25h7M164 32h7"/></g>
-              </svg>
-              <figcaption><span></span>Perangkat terhubung dan berbagi data</figcaption>
-            </figure>
-          </div>
-
-          <div class="materi-highlight">
-            <strong>Contoh sederhana:</strong> komputer di laboratorium terhubung melalui media jaringan sehingga
-            pengguna dapat mengirim file ke printer bersama atau mengakses koneksi internet yang sama.
-          </div>
-
-          <div class="info-cols">
-            <div class="info-col">
-              <h3>Manfaat Utama</h3>
-              <ul>
-                <li>Komunikasi dan pertukaran data, misalnya e-mail atau chatting.</li>
-                <li>Berbagi sumber daya: printer, server, file, program, dan koneksi internet.</li>
-                <li>Administrasi sistem secara terpusat.</li>
-                <li>Keamanan terpusat, misalnya melalui firewall.</li>
-                <li>Integrasi data dan pembagian beban pemrosesan.</li>
-              </ul>
-            </div>
-            <div class="info-col">
-              <h3>Dampak bagi Pengguna</h3>
-              <ul>
-                <li>Memudahkan kerja sama dalam kelompok atau komunitas.</li>
-                <li>Menghemat biaya penggunaan hardware dan software.</li>
-                <li>Menghemat waktu dan tenaga saat bertukar informasi.</li>
-                <li>Meningkatkan produktivitas melalui data yang terintegrasi.</li>
-                <li>Mendukung kolaborasi dalam cakupan lokal hingga global.</li>
-            </ul>
-          </div>
-          </div>
-
-          <div class="materi-flow" aria-label="Alur komunikasi jaringan">
-            <div><span>1</span><strong>Pengirim</strong><small>Perangkat membuat dan mengirim data.</small></div>
-            <div><span>2</span><strong>Media</strong><small>Penghubung dapat berupa kabel atau nirkabel.</small></div>
-            <div><span>3</span><strong>Penerima</strong><small>Perangkat tujuan menerima data.</small></div>
-          </div>
-        </article>
-
-        <section class="lesson-video" data-video-key="pengertian" aria-labelledby="videoPengertianTitle">
-          <div class="lesson-video-heading"><div><span>Video Pendukung 1</span><h3 id="videoPengertianTitle">Video Pengertian Jaringan</h3><p>Tonton rangkuman konsep dasar sebelum melanjutkan latihan.</p></div><b class="lesson-video-status" data-video-status="pengertian">Belum selesai</b></div>
-          <video class="lesson-video-player" controls preload="metadata"><source src="video/jaringan komputer.mp4" type="video/mp4">Browser Anda tidak mendukung pemutar video.</video>
-          <p class="lesson-video-note" data-video-note="pengertian">Tonton sampai selesai untuk menandai video ini sebagai selesai.</p>
-        </section>
-
-        <div class="check-box" data-check="pengertian">
-          <h4>Cek Pemahaman</h4>
-          <p class="check-q">Salah satu tujuan utama jaringan komputer adalah...</p>
-          <div class="check-options">
-            <button class="opt-btn" data-correct="false">A. Mempercepat proses booting komputer</button>
-            <button class="opt-btn" data-correct="true">B. Memungkinkan komunikasi dan berbagi sumber daya</button>
-            <button class="opt-btn" data-correct="false">C. Mengganti fungsi sistem operasi</button>
-            <button class="opt-btn" data-correct="false">D. Menambah kapasitas RAM komputer</button>
-          </div>
-          <p class="check-feedback"></p>
-        </div>
-
-        <div class="topic-nav">
-          <span></span>
-          <button class="btn btn-primary btn-small" data-topic-goto="jenis">Lanjut: Jenis-Jenis Jaringan →</button>
-        </div>
-      </div>
-
-      <!-- TOPIK 2: JENIS-JENIS -->
-      <div class="topic-panel" id="topic-jenis">
-        <article class="materi-block">
-          <h2>Jenis-Jenis Jaringan Komputer</h2>
-          <p>Jenis jaringan komputer merupakan pengelompokan jaringan berdasarkan jarak jangkauan atau luas area yang dilayaninya. Berdasarkan jangkauannya, jaringan komputer dibedakan menjadi beberapa jenis, yaitu LAN, MAN, dan WAN.</p>
-        </article>
-
-        <div class="net-card">
-          <div class="net-card-media">
-            <img src="images/lan.png" alt="Ilustrasi LAN" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="img-fallback" style="display:none">
-              <svg viewBox="0 0 24 24" width="40" height="40" fill="none"><rect x="4" y="9" width="16" height="7" rx="1.5" stroke="#2F8FE0" stroke-width="1.8"/><circle cx="8" cy="12.5" r="1" fill="#2F8FE0"/><circle cx="12" cy="12.5" r="1" fill="#2F8FE0"/><circle cx="16" cy="12.5" r="1" fill="#2F8FE0"/></svg>
-            </div>
-          </div>
-          <div class="net-card-body">
-            <span class="net-tag">LAN</span>
-            <h3>Local Area Network</h3>
-            <p>LAN berada dalam ruang lingkup sangat terbatas, misalnya ruangan, rumah, hingga gedung bertingkat.</p>
-            <div class="net-meta">
-              <div><strong>Cakupan wilayah</strong><span>Sekitar 10–300 meter</span></div>
-              <div><strong>Contoh penggunaan</strong><span>Laboratorium komputer, warnet, rumah, atau divisi perusahaan</span></div>
-              <div><strong>Media umum</strong><span>Kabel UTP, switch, dan access point WiFi</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="net-card">
-          <div class="net-card-media">
-            <img src="images/man.png" alt="Ilustrasi MAN" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="img-fallback" style="display:none">
-              <svg viewBox="0 0 24 24" width="40" height="40" fill="none"><path d="M4 20V9l4-3 4 3 4-3 4 3v11" stroke="#38C9C9" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 20h16" stroke="#38C9C9" stroke-width="1.8"/></svg>
-            </div>
-          </div>
-          <div class="net-card-body">
-            <span class="net-tag" style="background:#E4F8F6;color:#1B9C9C">MAN</span>
-            <h3>Metropolitan Area Network</h3>
-            <p>MAN menghubungkan beberapa jaringan LAN yang masih berada dalam lingkup satu kota.</p>
-            <div class="net-meta">
-              <div><strong>Cakupan wilayah</strong><span>Satu kota atau wilayah metropolitan (sekitar 5–50 km)</span></div>
-              <div><strong>Contoh penggunaan</strong><span>Jaringan antar kantor cabang bank dalam satu kota</span></div>
-              <div><strong>Media umum</strong><span>Serat optik atau koneksi khusus antar lokasi</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="net-card">
-          <div class="net-card-media">
-            <img src="images/wan.png" alt="Ilustrasi WAN" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="img-fallback" style="display:none">
-              <svg viewBox="0 0 24 24" width="40" height="40" fill="none"><circle cx="12" cy="12" r="9" stroke="#1B4B7A" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18" stroke="#1B4B7A" stroke-width="1.6"/></svg>
-            </div>
-          </div>
-          <div class="net-card-body">
-            <span class="net-tag" style="background:#EAF0FC;color:#1B4B7A">WAN</span>
-            <h3>Wide Area Network</h3>
-            <p>WAN melingkupi area sangat luas, melintasi kota, provinsi, pulau, bahkan benua.</p>
-            <div class="net-meta">
-              <div><strong>Cakupan wilayah</strong><span>Antar kota, pulau, hingga antar negara</span></div>
-              <div><strong>Contoh penggunaan</strong><span>Jaringan internet, koneksi kantor pusat dengan cabang luar kota</span></div>
-              <div><strong>Media umum</strong><span>Internet, satelit, serat optik, atau jaringan seluler</span></div>
-            </div>
-          </div>
-        </div>
-
-        <section class="lesson-video" data-video-key="jenis" aria-labelledby="videoJenisTitle">
-          <div class="lesson-video-heading"><div><span>Video Pendukung 2</span><h3 id="videoJenisTitle">Video Jenis-Jenis Jaringan</h3><p>Gunakan video ini untuk memperkuat perbedaan LAN, MAN, dan WAN.</p></div><b class="lesson-video-status" data-video-status="jenis">Belum selesai</b></div>
-          <video class="lesson-video-player" controls preload="metadata"><source src="video/Jenis Jaringan komputer.mp4" type="video/mp4">Browser Anda tidak mendukung pemutar video.</video>
-          <p class="lesson-video-note" data-video-note="jenis">Tonton sampai selesai untuk menandai video ini sebagai selesai.</p>
-        </section>
-
-        <div class="check-box" data-check="jenis">
-          <h4>Cek Pemahaman</h4>
-          <p class="check-q">Jaringan yang mencakup wilayah satu kota disebut...</p>
-          <div class="check-options">
-            <button class="opt-btn" data-correct="false">A. LAN</button>
-            <button class="opt-btn" data-correct="true">B. MAN</button>
-            <button class="opt-btn" data-correct="false">C. WAN</button>
-            <button class="opt-btn" data-correct="false">D. Internet</button>
-          </div>
-          <p class="check-feedback"></p>
-        </div>
-
-        <div class="topic-nav">
-          <button class="btn btn-ghost btn-small" data-topic-goto="pengertian">← Kembali</button>
-          <button class="btn btn-primary btn-small" data-topic-goto="topologi">Lanjut: Topologi Jaringan →</button>
-        </div>
-      </div>
-
-      <!-- TOPIK 3: TOPOLOGI -->
-      <div class="topic-panel" id="topic-topologi">
-        <article class="materi-block">
-          <h2>Topologi Jaringan</h2>
-          <p>Topologi jaringan adalah pola atau bentuk susunan hubungan antarperangkat dalam sebuah jaringan komputer. 
-            Topologi menunjukkan bagaimana komputer, server, switch, dan perangkat jaringan lainnya saling terhubung dan berkomunikasi.</p>
-            <p>Adapun beberapa jenis topologi jaringan antara lain:</p>
-        </article>
-
-        <div class="device-grid">
-          <div class="device-card">
-            <div class="topology-badge"><img src="images/bus.png" alt="Ilustrasi Topologi Bus" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span>BUS</span></div>
-            <h3>Topologi Bus</h3>
-            <p class="device-fn">Komponen terhubung pada jalur komunikasi utama (trunk atau backbone).</p>
-            <p>Pada topologi Linear Bus, setiap komponen terhubung ke <strong>trunk atau backbone</strong> sehingga membentuk satu segmen jaringan. Kedua ujung kabel menggunakan terminator untuk mencegah sinyal terserap; media yang digunakan adalah kabel coaxial.</p>
-          </div>
-
-          <div class="device-card">
-            <div class="topology-badge"><img src="images/star.png" alt="Ilustrasi Topologi Star" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span>STAR</span></div>
-            <h3>Topologi Star</h3>
-            <p class="device-fn">Setiap komponen terhubung ke perangkat pusat.</p>
-            <p>Pada topologi Star, setiap komponen terhubung ke perangkat jaringan pusat seperti <strong>hub, switch, atau router</strong>. Jika beberapa Star dihubungkan hingga membentuk Star baru, hasilnya disebut Extended Star. Media koneksinya dapat berupa kabel UTP.</p>
-          </div>
-
-          <div class="device-card">
-            <div class="topology-badge"><img src="images/ring.png" alt="Ilustrasi Topologi Ring" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span>RING</span></div>
-            <h3>Topologi Ring</h3>
-            <p class="device-fn">Komponen terhubung pada backbone berbentuk loop tertutup.</p>
-            <p>Pada topologi Ring, setiap komponen terhubung ke jalur komunikasi utama yang <strong>membentuk loop tertutup</strong>. Pada Token Ring, pengkabelan dapat berbentuk Star dan loop dibentuk oleh perangkat MAU (<em>Media Access Unit</em>).</p>
-          </div>
-
-          <div class="device-card">
-            <div class="topology-badge"><img src="images/mesh.png" alt="Ilustrasi Topologi Mesh" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span>MESH</span></div>
-            <h3>Topologi Mesh</h3>
-            <p class="device-fn">Komponen memiliki jalur langsung khusus ke komponen lain.</p>
-            <p>Pada <strong>Full Mesh</strong>, setiap komponen memiliki hubungan langsung atau jalur khusus ke setiap komponen lain dalam segmen. Jika satu jalur khusus dihilangkan, bentuknya disebut Partial Mesh.</p>
-          </div>
-
-          <div class="device-card">
-            <div class="topology-badge"><img src="images/tree.png" alt="Ilustrasi Topologi Tree" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span>TREE</span></div>
-            <h3>Topologi Tree</h3>
-            <p class="device-fn">Jaringan disusun bertingkat seperti cabang pohon.</p>
-            <p>Topologi Tree adalah topologi yang memiliki <strong>struktur bertingkat seperti pohon</strong>, dengan beberapa jaringan yang tersusun secara hierarki.</p>
-          </div>
-
-          <div class="device-card">
-            <div class="topology-badge"><img src="images/hybrid.png" alt="Ilustrasi Topologi Hybrid" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span>HYBRID</span></div>
-            <h3>Topologi Hybrid</h3>
-            <p class="device-fn">Menggabungkan dua atau lebih jenis topologi.</p>
-            <p>Topologi Hybrid adalah topologi yang merupakan <strong>gabungan dari dua atau lebih jenis topologi jaringan</strong>, misalnya gabungan topologi Star dan Bus.</p>
-          </div>
-        </div>
-
-        <section class="lesson-video" data-video-key="topologi" aria-labelledby="videoTopologiTitle">
-          <div class="lesson-video-heading"><div><span>Video Pendukung 3</span><h3 id="videoTopologiTitle">Video Topologi Jaringan</h3><p>Lihat visualisasi topologi sebelum menyelesaikan evaluasi akhir.</p></div><b class="lesson-video-status" data-video-status="topologi">Belum selesai</b></div>
-          <video class="lesson-video-player" controls preload="metadata"><source src="video/Topologi Jaringan.mp4" type="video/mp4">Browser Anda tidak mendukung pemutar video.</video>
-          <p class="lesson-video-note" data-video-note="topologi">Tonton sampai selesai untuk menandai video ini sebagai selesai.</p>
-        </section>
-
-        <div class="check-box" data-check="topologi">
-          <h4>Latihan Singkat</h4>
-          <p class="check-q">Topologi yang menghubungkan semua perangkat ke satu perangkat pusat adalah...</p>
-          <div class="check-options">
-            <button class="opt-btn" data-correct="false">A. Bus</button>
-            <button class="opt-btn" data-correct="true">B. Star</button>
-            <button class="opt-btn" data-correct="false">C. Ring</button>
-            <button class="opt-btn" data-correct="false">D. Mesh</button>
-          </div>
-          <p class="check-feedback"></p>
-        </div>
-
-        <div class="topic-nav">
-          <button class="btn btn-ghost btn-small" data-topic-goto="jenis">← Kembali</button>
-          <button class="btn btn-primary btn-small" data-goto="kuis">Ke Kuis Evaluasi →</button>
-        </div>
-      </div>
+      <iframe class="materi-frame" id="materiFrame" src="materi.html" title="Materi Pembelajaran Jaringan Komputer" loading="lazy"></iframe>
     </section>
 
     <!-- ===== VIDEO ===== -->
@@ -461,11 +198,11 @@
 
       <div class="video-wrap">
         <video id="mainVideo" controls poster="" onerror="document.getElementById('videoFallback').style.display='flex'; this.style.display='none';">
-          <source src="video/jaringan-komputer.mp4" type="video/mp4">
+          <source src="assets/videos/jaringan komputer.mp4" type="video/mp4">
         </video>
         <div class="video-fallback" id="videoFallback">
           <svg viewBox="0 0 24 24" width="46" height="46" fill="none"><rect x="3" y="5" width="14" height="14" rx="2" stroke="#BFD8F2" stroke-width="1.6"/><path d="M17 9.5l4-2.3v9.6l-4-2.3" stroke="#BFD8F2" stroke-width="1.6" stroke-linejoin="round"/></svg>
-          <p>Video belum tersedia.<br>Masukkan file <code>jaringan-komputer.mp4</code> ke folder <code>video/</code>.</p>
+          <p>Video belum tersedia.<br>Pastikan file tersedia di folder <code>assets/videos/</code>.</p>
         </div>
       </div>
 
@@ -488,30 +225,26 @@
       <button class="btn btn-ghost" data-goto="dashboard">← Kembali ke Dashboard</button>
     </section>
 
+    <!-- Simulasi dipisahkan agar mudah dikembangkan. -->
+    <section class="page" id="page-simulasi">
+      <iframe class="simulation-frame" id="simulationFrame" src="simulasi.html" title="Simulasi Topologi Jaringan" loading="lazy"></iframe>
+    </section>
+
     <!-- ===== KUIS ===== -->
     <section class="page" id="page-kuis">
 
       <div id="kuisIntro" class="quiz-intro">
         <div class="quiz-hero">
           <div class="quiz-hero-content">
-            <span class="quiz-eyebrow">Evaluasi Akhir</span>
             <h1>Kuis Evaluasi</h1>
-            <p>Uji pemahamanmu tentang pengertian, jenis, dan topologi jaringan komputer dalam satu rangkaian kuis.</p>
+            <p>Uji pemahamanmu tentang materi jaringan komputer.</p>
             <div class="quiz-meta" aria-label="Informasi kuis">
-              <div><strong>15</strong><span>Soal pilihan ganda</span></div>
-              <div><strong>3</strong><span>Topik pembelajaran</span></div>
+              <div><strong>15</strong><span>soal</span></div>
+              <div><strong>3</strong><span>topik</span></div>
               <div><strong>1×</strong><span>Jawaban per soal</span></div>
             </div>
             <button class="btn btn-primary quiz-start-btn" id="startQuizBtn" disabled>Mulai Kuis</button>
           </div>
-          <aside class="quiz-hero-aside" aria-label="Aturan pengerjaan kuis">
-            <div class="quiz-hero-icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" fill="none"><rect x="13" y="8" width="38" height="48" rx="7" stroke="currentColor" stroke-width="3"/><path d="M23 22h18M23 32h18M23 42h10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="45" cy="43" r="7" fill="#38C9C9"/><path d="m42 43 2 2 4-5" stroke="#0E2B45" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <span>Siap mengerjakan?</span>
-            <h2>Jawab dengan teliti</h2>
-            <p>Pilih satu jawaban pada setiap soal. Nilai dan pembahasan akan tersedia setelah kuis selesai.</p>
-          </aside>
         </div>
         <div class="quiz-lock-card" id="quizLockCard" role="status" aria-live="polite">
           <div class="quiz-lock-icon" aria-hidden="true">
@@ -523,11 +256,11 @@
           </div>
           <div>
             <h2>Kuis masih terkunci</h2>
-            <p id="quizLockMessage">Selesaikan cek pemahaman pada seluruh materi untuk membuka kuis.</p>
+            <p id="quizLockMessage">Selesaikan latihan singkat pada seluruh materi untuk membuka kuis.</p>
             <ul class="quiz-requirements" id="quizRequirements">
-              <li data-requirement="pengertian">Cek pemahaman Pengertian Jaringan</li>
-              <li data-requirement="jenis">Cek pemahaman Jenis Jaringan</li>
-              <li data-requirement="topologi">Cek pemahaman Topologi Jaringan</li>
+              <li data-requirement="pengertian">Latihan Pengertian Jaringan</li>
+              <li data-requirement="jenis">Latihan Jenis Jaringan</li>
+              <li data-requirement="topologi">Latihan Topologi Jaringan</li>
             </ul>
           </div>
         </div>
@@ -616,20 +349,17 @@
 
     <!-- ===== PETUNJUK ===== -->
     <section class="page" id="page-petunjuk">
-      <section class="guide-hero" aria-labelledby="guideTitle">
+      <section class="guide-simple-intro" aria-labelledby="guideTitle">
         <div>
           <span class="guide-eyebrow">Panduan Belajar</span>
           <h1 id="guideTitle">Petunjuk Penggunaan</h1>
           <p>Ikuti alur berikut agar proses belajarmu lebih terarah, dari memahami materi hingga melihat hasil evaluasi.</p>
         </div>
-        <div class="guide-hero-badge" aria-label="Enam langkah pembelajaran">
-          <strong>6</strong><span>langkah mudah<br>untuk diikuti</span>
-        </div>
       </section>
 
       <div class="guide-section-heading">
         <span>Alur Pembelajaran</span>
-        <h2>Mulai belajar dalam 6 langkah</h2>
+        <h2>Mulai belajar dalam 7 langkah</h2>
       </div>
       <ol class="guide-list" aria-label="Langkah penggunaan media">
         <li>
@@ -646,14 +376,18 @@
         </li>
         <li>
           <span class="guide-num">4</span>
-          <div><h3>Kerjakan Kuis</h3><p>Pilih menu <strong>Kuis</strong> untuk mengerjakan 15 soal evaluasi pilihan ganda.</p></div>
+          <div><h3>Coba Simulasi Topologi</h3><p>Pilih menu <strong>Simulasi</strong> untuk melihat jalur paket data pada topologi Star, Bus, dan Ring.</p></div>
         </li>
         <li>
           <span class="guide-num">5</span>
-          <div><h3>Lihat Hasil &amp; Pembahasan</h3><p>Setelah kuis selesai, kamu bisa melihat nilai akhir serta pembahasan setiap soal.</p></div>
+          <div><h3>Kerjakan Kuis</h3><p>Pilih menu <strong>Kuis</strong> untuk mengerjakan 15 soal evaluasi pilihan ganda.</p></div>
         </li>
         <li>
           <span class="guide-num">6</span>
+          <div><h3>Lihat Hasil &amp; Pembahasan</h3><p>Setelah kuis selesai, kamu bisa melihat nilai akhir serta pembahasan setiap soal.</p></div>
+        </li>
+        <li>
+          <span class="guide-num">7</span>
           <div><h3>Gunakan Navbar</h3><p>Gunakan navbar di bagian atas kapan saja untuk berpindah antar menu.</p></div>
         </li>
       </ol>
@@ -670,9 +404,6 @@
       <p class="page-lead">Media interaktif yang disusun sebagai pendamping pembelajaran pengenalan jaringan komputer.</p>
 
       <article class="about-intro">
-        <div class="about-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="2.4" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="6" r="2.4" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="18" r="2.4" stroke="currentColor" stroke-width="1.8"/><path d="M8 7.5 11 15M16 7.5 13 15M8.3 6h7.4" stroke="currentColor" stroke-width="1.6"/></svg>
-        </div>
         <div>
           <h2>Belajar jaringan komputer dengan lebih terarah</h2>
           <p>Media ini mengadaptasi materi pengenalan jaringan komputer dari Modul Jaringan Komputer karya Nur Hidayati, M.Kom. Fokus pembelajaran mencakup definisi dan manfaat jaringan, klasifikasi berdasarkan cakupan, media kabel dan nirkabel, serta topologi fisik jaringan.</p>
@@ -704,6 +435,6 @@
   </main>
 </div>
 
-<script src="script.js"></script>
+<script src="script.js?v=20261006-28"></script>
 </body>
 </html>
